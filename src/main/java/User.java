@@ -2,7 +2,6 @@ public class User {
     private int id;
     private String name;
     private String surname;
-    private Role role;
 
     public int getId() {
         return id;
@@ -28,30 +27,16 @@ public class User {
         this.surname = surname;
     }
 
-    public Role getRole() {
-        return role;
-    }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public User (int id, String name, String surname){
         super();
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.role = new Role(1,"default");
-    }
-    public User (int id, String name, String surname, Role role){
-        super();
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.role = role;
     }
     @Override
     public String toString(){
-        return id + " " + name + " " + surname + " " + role.getName();
+        return id + " " + name + " " + surname + " ";
     }
 }
