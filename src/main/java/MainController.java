@@ -18,12 +18,23 @@ public class MainController implements Initializable{
     private Map<String,Parent> views = new HashMap<>();
 
     private void loadView(String name, String file) throws IOException{
-        views.put(name,FXMLLoader.load(getClass().getClassLoader().getResource(file)));
+        views.put(name, FXMLLoader.load(getClass().getClassLoader().getResource(file)));
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
-            loadView("");
+            loadView("users","users.fxml");
+            loadView("products","products.fxml");
+            content.setCenter(views.get("users"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+    @FXML protected void updateView(ActionEvent event){
+        MenuItem item = (MenuItem) event.getSource();
+        content.setCenter(views.get(item.getId()));
+
+    }
+
 }
